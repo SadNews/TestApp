@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qea-Yo-n2D">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qea-Yo-n2D">
                                 <rect key="frame" x="15" y="93" width="384" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -50,17 +50,6 @@
                                     <action selector="txt:" destination="Dgp-O5-eJB" eventType="touchUpInside" id="SV2-Fj-Yad"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLP-DA-nq8">
-                                <rect key="frame" x="159.5" y="815" width="95" height="32"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Поиск" image="magnifyingglass" catalog="system">
-                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchAdresBtn:" destination="Dgp-O5-eJB" eventType="touchUpInside" id="j9K-dV-6Gq"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalCentering" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jX0-Zt-d8p">
                                 <rect key="frame" x="364" y="401" width="30" height="94"/>
                                 <subviews>
@@ -85,23 +74,34 @@
                                     <constraint firstAttribute="width" constant="30" id="YpG-aS-13X"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLP-DA-nq8">
+                                <rect key="frame" x="159.5" y="88" width="95" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Поиск" image="magnifyingglass" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchAdresBtn:" destination="Dgp-O5-eJB" eventType="touchUpInside" id="j9K-dV-6Gq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Qea-Yo-n2D" firstAttribute="top" secondItem="mtG-aD-gbB" secondAttribute="top" constant="5" id="0WP-W4-hfd"/>
                             <constraint firstItem="mtG-aD-gbB" firstAttribute="trailing" secondItem="6vk-U2-a96" secondAttribute="trailing" id="6cZ-aM-brv"/>
                             <constraint firstItem="mtG-aD-gbB" firstAttribute="bottom" secondItem="6vk-U2-a96" secondAttribute="bottom" id="8Yo-E9-ADD"/>
-                            <constraint firstItem="6vk-U2-a96" firstAttribute="top" secondItem="CLP-DA-nq8" secondAttribute="bottom" constant="15" id="9UW-PU-AUt"/>
                             <constraint firstItem="jX0-Zt-d8p" firstAttribute="centerY" secondItem="hJo-4z-gkT" secondAttribute="centerY" id="Adj-8T-hv7"/>
                             <constraint firstItem="ZaL-kR-s9h" firstAttribute="leading" secondItem="hJo-4z-gkT" secondAttribute="leading" id="AwJ-OF-BWa"/>
                             <constraint firstItem="6vk-U2-a96" firstAttribute="leading" secondItem="mtG-aD-gbB" secondAttribute="leading" id="LBr-Ez-dRO"/>
                             <constraint firstItem="mtG-aD-gbB" firstAttribute="bottom" secondItem="ZaL-kR-s9h" secondAttribute="bottom" id="N5c-Av-lsg"/>
+                            <constraint firstItem="CLP-DA-nq8" firstAttribute="top" secondItem="mtG-aD-gbB" secondAttribute="top" id="QNl-aq-9hi"/>
                             <constraint firstItem="mtG-aD-gbB" firstAttribute="trailing" secondItem="Qea-Yo-n2D" secondAttribute="trailing" constant="15" id="QpF-zX-BUH"/>
                             <constraint firstItem="ZaL-kR-s9h" firstAttribute="top" secondItem="mtG-aD-gbB" secondAttribute="top" id="ZDF-77-o35"/>
                             <constraint firstItem="mtG-aD-gbB" firstAttribute="trailing" secondItem="ZaL-kR-s9h" secondAttribute="trailing" id="fAv-1N-nTL"/>
+                            <constraint firstItem="CLP-DA-nq8" firstAttribute="centerX" secondItem="hJo-4z-gkT" secondAttribute="centerX" id="fGD-o5-OCw"/>
                             <constraint firstItem="Qea-Yo-n2D" firstAttribute="leading" secondItem="mtG-aD-gbB" secondAttribute="leading" constant="15" id="kD3-vK-yN1"/>
                             <constraint firstItem="mtG-aD-gbB" firstAttribute="trailing" secondItem="jX0-Zt-d8p" secondAttribute="trailing" constant="20" id="m5y-IW-yOX"/>
-                            <constraint firstItem="CLP-DA-nq8" firstAttribute="centerX" secondItem="hJo-4z-gkT" secondAttribute="centerX" id="tCP-AK-EE7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mtG-aD-gbB"/>
                     </view>

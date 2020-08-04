@@ -102,15 +102,15 @@
 			isa = PBXGroup;
 			children = (
 				1177D7E924D3619400479895 /* Main.storyboard */,
-				11A7BD8C24D9995D00A1CA5A /* SelectDuration */,
 				11A7BD8524D9796E00A1CA5A /* ChooseInterests */,
 				11A7BD8424D9781400A1CA5A /* ChooseParam */,
 				11E0A60D24D8EA3C00CBD9AE /* MapView */,
 				11E0A61424D8EF3100CBD9AE /* AddOrder */,
 				11E0A61724D9077700CBD9AE /* Services */,
 				1177D7FE24D5A49700479895 /* Model */,
-				1177D7D524D3616800479895 /* AppDelegate.swift */,
+				11A7BD8C24D9995D00A1CA5A /* SelectDuration */,
 				1177D7D724D3616800479895 /* SceneDelegate.swift */,
+				1177D7D524D3616800479895 /* AppDelegate.swift */,
 				1177D7F724D5980F00479895 /* Supporting files */,
 			);
 			path = TestApp;

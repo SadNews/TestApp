@@ -14,11 +14,13 @@ final class MapViewPresenter {
     weak var delegate: AddMarkProtocol?
     func observe() {
         let ref = Database.database().reference(withPath: "users").child(String(UserInfo.userDemo.uid)).child("tasks")
+        DispatchQueue.global().async {
         ref.observe(.value, with: { snapshot in
             for item in snapshot.children {
                 let marker =  self.newMark.addNewMarker(item: item)
                 self.delegate?.addNewMark(marker: marker)
             }
         })
+        }
     }
 }
