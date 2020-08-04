@@ -12,7 +12,8 @@ import GooglePlaces
 import Firebase
 
 class SelectDurationPresenter {
-    
+    let newMark = AddNewMarker()
+
     let marker = GMSMarker()
     var ref: DatabaseReference!
     var delegate: AddMarkProtocol?
@@ -21,6 +22,7 @@ class SelectDurationPresenter {
     var dismissDelegate: DismissDelegate?
     
     func addSnapshot() {
+        
         ref = Database.database().reference(withPath: "users").child(String(UserInfo.userDemo.uid)).child("tasks")
         let task = Task(title: String(Int.random(in: 0..<10000)), userID: UserInfo.userDemo.uid,
                         latitude: position!.latitude, longitude: position!.longitude,

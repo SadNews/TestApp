@@ -7,8 +7,10 @@
 //
 
 import Foundation
-
+import GoogleMaps
 struct MapViewModel {
     static var tasksHashValue = Set<Int>()
     static var tasks = Array<Task>()
+    let marker: GMSMarker
+
 }
