@@ -9,6 +9,6 @@
 import Foundation
 
 struct MapViewModel {
-   static var tasks = Array<Task>()
-
+    static var tasksHashValue = Set<Int>()
+    static var tasks = Array<Task>()
 }

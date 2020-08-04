@@ -8,34 +8,24 @@
 
 import UIKit
 
-class ChooseParamViewContoller: UIViewController {
+final class ChooseParamViewContoller: UIViewController {
     
     @IBOutlet weak var paramName: UILabel!
     @IBOutlet weak var value: UILabel!
     @IBOutlet weak var picker: UIPickerView!
+    private var presenter: ChooseParamPresenter!
     var currentSelection: Int?
-    var pickerElements = [""]
     var stringValue: StringValues?
     override func viewDidLoad() {
         super.viewDidLoad()
-        whichPickerShouldBeShown()
+        presenter = ChooseParamPresenter()
+        presenter.whichPickerShouldBeShown(currentSelection: currentSelection ?? 100)
         picker.delegate = self
         picker.dataSource = self
         paramName.text = Constans.menu[currentSelection ?? 0]
-        value.text = pickerElements[0]
+        value.text = presenter.pickerElements[0]
     }
-    func whichPickerShouldBeShown() {
-        switch currentSelection {
-        case 0:
-            pickerElements = Constans.sex
-        case 1:
-            pickerElements = Constans.weight()
-        case 2:
-            pickerElements = Constans.age
-        default:
-            pickerElements = [""]
-        }
-    }
+    
     @IBAction func exit(_ sender: UIButton) {
         stringValue!.selectedValues[currentSelection ?? 0] = value.text ?? ""
         dismiss(animated: false, completion: nil)
@@ -45,7 +35,7 @@ class ChooseParamViewContoller: UIViewController {
 extension ChooseParamViewContoller: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         paramName.text = Constans.menu[currentSelection ?? 0]
-        value.text =  pickerElements[row]
+        value.text =  presenter.pickerElements[row]
     }
 }
 extension ChooseParamViewContoller: UIPickerViewDataSource {
@@ -54,14 +44,14 @@ extension ChooseParamViewContoller: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        pickerElements.count
+        presenter.pickerElements.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        pickerElements[row]
+        presenter.pickerElements[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString(string: pickerElements[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        return NSAttributedString(string: presenter.pickerElements[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
     }
 }

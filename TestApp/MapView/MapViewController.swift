@@ -8,44 +8,27 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
-import Firebase
 
-//func addMark(latitude: Double, longitude: Double, title: String, subtitle: String) {
-// let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-//   let marker = GMSMarker(position: position)
-//   marker.title = "Привет кот"
-//   marker.map = mapView
-//}
+protocol AddMarkProtocol: class {
+    func addNewMark(marker: GMSMarker)
+}
 
-class MapViewController: UIViewController, AddOrderViewControllerDelegate, addMarkProtocol {
-    func addNewMark(latitude: Double, longitude: Double, title: String, subtitle: String) {
-        let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-           let marker = GMSMarker(position: position)
-           marker.title = "Привет кот"
-           marker.map = mapView
-    }
-    
-    func addMark(marker: GMSMarker) {
-        marker.title = "Привет кот"
-        marker.map = mapView
-    }
-    
+final class MapViewController: UIViewController, AddMarkProtocol {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var searchAdress: UITextField!
     private var presenter: MapViewPresenter!
-    var resultsViewController: GMSAutocompleteResultsViewController?
-    var searchController: UISearchController?
-    var zoom: Float = 15
     let locationManager = CLLocationManager()
-    var currentLocation: CLLocation?
     let marker = GMSMarker()
+    var resultsViewController: GMSAutocompleteResultsViewController?
+    var zoom: Float = 15
+    var currentLocation: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter = MapViewPresenter()
         presenter.delegate = self
-        resultsViewController?.delegate = self
-        setupSearchController()
+        searchAdress.isHidden = true
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
         locationManager.delegate = self
@@ -53,19 +36,31 @@ class MapViewController: UIViewController, AddOrderViewControllerDelegate, addMa
         mapView.settings.myLocationButton = true
     }
     
+    func gotoPlaces() {
+        searchAdress.resignFirstResponder()
+        let acController = GMSAutocompleteViewController()
+        acController.delegate = self
+        present(acController, animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         presenter.observe()
     }
     
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        let popup = self.storyboard?.instantiateViewController(withIdentifier: "PopupVC") as! AddOrderViewController
-        let vc5 = self.storyboard?.instantiateViewController(withIdentifier: "vc5") as! ViewControllerTime
-        marker.position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude)
-        popup.position = marker.position
-        vc5.delegate = self
-        present(popup, animated: true, completion: nil)
+    @IBAction func searchAdresBtn(_ sender: UIButton) {
+        gotoPlaces()
     }
     
+    func addNewMark(marker: GMSMarker){
+        marker.map = mapView
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        let addNewOrderVC = self.storyboard?.instantiateViewController(withIdentifier: "addNewOrderVC") as! AddOrderViewController
+        marker.position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude)
+        addNewOrderVC.position = marker.position
+        present(addNewOrderVC, animated: true, completion: nil)
+    }
     
     @IBAction func btnZoomIn(_ sender: UIButton) {
         zoom = zoom + 1
@@ -77,88 +72,3 @@ class MapViewController: UIViewController, AddOrderViewControllerDelegate, addMa
     }
 }
 
-// MARK: - CLLocationManagerDelegate
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        guard status == .authorizedWhenInUse else {
-            return
-        }
-        
-        locationManager.startUpdatingLocation()
-        mapView.isMyLocationEnabled = true
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
-        
-        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-        locationManager.stopUpdatingLocation()
-    }
-}
-
-// MARK: - GMSMapViewDelegate
-extension MapViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
-        reverseGeocodeCoordinate(position.target)
-    }
-    
-    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-           zoom = mapView.camera.zoom
-       }
-}
-extension UIViewController {
-    func presentOnRoot(viewController: AddOrderViewController){
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-        self.present(navigationController, animated: false, completion: nil)
-    }
-}
-
-extension MapViewController: GMSAutocompleteResultsViewControllerDelegate {
-        func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didAutocompleteWith place: GMSPlace) {
-      print(place)
-    }
-    
-    func resultsController(_ resultsController: GMSAutocompleteResultsViewController, didFailAutocompleteWithError error: Error) {
-        print("Error: \(error.localizedDescription)")
-
-    }
-}
-extension MapViewController {
-    func setupSearchController() {
-        resultsViewController = GMSAutocompleteResultsViewController()
-        searchController = UISearchController(searchResultsController: resultsViewController)
-        searchController?.searchResultsUpdater = resultsViewController
-
-        let searchBar = searchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for places"
-        navigationItem.titleView = searchController?.searchBar
-        definesPresentationContext = true
-        searchController?.hidesNavigationBarDuringPresentation = false
-    }
-}
-extension MapViewController {
-private func reverseGeocodeCoordinate(_ coordinate: CLLocationCoordinate2D) {
-       let geocoder = GMSGeocoder()
-       
-       geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
-           
-           guard let address = response?.firstResult(), let lines = address.lines else {
-               return
-           }
-           
-           self.addressLabel.text = lines.joined(separator: "\n")
-           
-           let labelHeight = self.addressLabel.intrinsicContentSize.height
-           self.mapView.padding = UIEdgeInsets(top: self.view.safeAreaInsets.top, left: 0,
-                                               bottom: labelHeight, right: 0)
-           
-           UIView.animate(withDuration: 0.25) {
-               self.view.layoutIfNeeded()
-           }
-       }
-    }
-}

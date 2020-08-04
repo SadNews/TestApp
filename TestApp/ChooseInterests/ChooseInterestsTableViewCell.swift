@@ -9,9 +9,8 @@
 import UIKit
 
 class ChooseInterestsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var interest: UILabel!
-    @IBOutlet weak var chooseInterestLabes: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +20,5 @@ class ChooseInterestsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-
+    
 }

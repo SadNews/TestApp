@@ -8,16 +8,24 @@
 
 import UIKit
 
-class ChooseInterestsVC: UIViewController {
-
+final class ChooseInterestsVC: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
+    var stringValue: StringValues?
+    var interests: Set<String> = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        interests.removeAll()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+    }
+    @IBAction func done(_ sender: UIButton) {
+        stringValue?.interest = interests.sorted()
+        dismiss(animated: false, completion: nil)
     }
 }
+
 extension ChooseInterestsVC: UITableViewDelegate {
     
 }
@@ -28,12 +36,21 @@ extension ChooseInterestsVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chooseInterestsVC", for: indexPath) as! ChooseInterestsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseInterestsCell", for: indexPath) as! ChooseInterestsTableViewCell
         cell.interest.text = Constans.interests[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if cell.accessoryType == .none {
+                cell.accessoryType = .checkmark
+                interests.insert(Constans.interests[indexPath.row])
+                print(interests)
+            } else {
+                cell.accessoryType = .none
+                interests.remove(Constans.interests[indexPath.row])
+            }
+        }
     }
 }

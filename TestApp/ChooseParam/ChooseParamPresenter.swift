@@ -7,3 +7,20 @@
 //
 
 import Foundation
+
+class ChooseParamPresenter {
+    var pickerElements = [""]
+    
+    func whichPickerShouldBeShown(currentSelection: Int) {
+        switch currentSelection {
+        case 0:
+            pickerElements = Constans.sex
+        case 1:
+            pickerElements = Constans.weight()
+        case 2:
+            pickerElements = Constans.age
+        default:
+            pickerElements = [""]
+        }
+    }
+}
