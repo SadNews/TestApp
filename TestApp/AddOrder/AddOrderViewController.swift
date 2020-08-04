@@ -18,7 +18,6 @@ final class AddOrderViewController: UIViewController, DismissDelegate  {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var btnl: UIButton!
     @IBOutlet weak var doneStackView: UIStackView!
-    private var presenter: AddOrderPresenter!
     
     var stringValues: StringValues?
     var position: CLLocationCoordinate2D?
@@ -29,7 +28,6 @@ final class AddOrderViewController: UIViewController, DismissDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         stringValues = StringValues()
-        presenter = AddOrderPresenter()
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
