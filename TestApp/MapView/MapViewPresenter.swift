@@ -11,6 +11,7 @@ import Firebase
 
 final class MapViewPresenter {
     weak var delegate: AddMarkProtocol?
+    
     func observe() {
         let ref = Database.database().reference(withPath: "users").child(String(UserInfo.userDemo.uid))
         DispatchQueue.global().async {

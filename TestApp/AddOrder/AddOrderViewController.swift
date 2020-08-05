@@ -41,6 +41,7 @@ final class AddOrderViewController: UIViewController, DismissDelegate  {
         continueButton.isHidden = true
         doneStackView.isHidden = false
     }
+    
     @IBAction func addOrder(_ sender: UIButton) {
         let selectDurationVC = self.storyboard?.instantiateViewController(withIdentifier: "selectDurationVC") as! SelectDurationViewController
         selectDurationVC.modalPresentationStyle = .fullScreen

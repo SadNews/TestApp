@@ -10,7 +10,6 @@ import Foundation
 import GoogleMaps
 import GooglePlaces
 
-
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

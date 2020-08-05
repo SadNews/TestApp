@@ -25,7 +25,6 @@ extension AddOrderViewController: UITableViewDataSource {
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 3 {
             let chooseInterests = self.storyboard?.instantiateViewController(withIdentifier: "ChooseInterestsVC") as! ChooseInterestsVC
@@ -43,8 +42,4 @@ extension AddOrderViewController: UITableViewDataSource {
 }
 
 extension AddOrderViewController: UITableViewDelegate {
-}
-
-extension AddOrderViewController {
-    
 }
