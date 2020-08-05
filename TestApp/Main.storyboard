@@ -186,7 +186,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="add:" destination="OJp-oi-41h" eventType="touchUpInside" id="y8G-hc-XBj"/>
+                                    <action selector="addOrder:" destination="OJp-oi-41h" eventType="touchUpInside" id="y8G-hc-XBj"/>
                                 </connections>
                             </button>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Sr1-hj-9i8">
@@ -229,10 +229,10 @@
                         <viewLayoutGuide key="safeArea" id="HcG-4P-bOU"/>
                     </view>
                     <connections>
-                        <outlet property="btnl" destination="h4l-fR-Oku" id="z6J-KY-8MR"/>
+                        <outlet property="continueButton" destination="h4l-fR-Oku" id="z6J-KY-8MR"/>
                         <outlet property="doneStackView" destination="Sr1-hj-9i8" id="Jpy-aH-byi"/>
                         <outlet property="tableView" destination="mPE-3z-39Y" id="QEv-4t-Eeq"/>
-                        <outlet property="tslabel" destination="NYk-6L-QFT" id="lUy-Kv-hRR"/>
+                        <outlet property="whatDoYouWantLabel" destination="NYk-6L-QFT" id="lUy-Kv-hRR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JS8-wE-FxN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -474,7 +474,7 @@
                                 </state>
                                 <connections>
                                     <action selector="add:" destination="XjF-zU-S13" eventType="touchUpInside" id="Tya-KP-hws"/>
-                                    <action selector="add:" destination="OJp-oi-41h" eventType="touchUpInside" id="gNx-kf-kdZ"/>
+                                    <action selector="addOrder:" destination="OJp-oi-41h" eventType="touchUpInside" id="gNx-kf-kdZ"/>
                                 </connections>
                             </button>
                         </subviews>

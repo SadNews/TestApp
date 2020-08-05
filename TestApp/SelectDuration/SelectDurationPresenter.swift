@@ -7,14 +7,11 @@
 //
 
 import Foundation
-import GoogleMaps
 import GooglePlaces
 import Firebase
 
 class SelectDurationPresenter {
-    let newMark = AddNewMarker()
 
-    let marker = GMSMarker()
     var ref: DatabaseReference!
     var delegate: AddMarkProtocol?
     var stringValue: StringValues?
@@ -30,11 +27,5 @@ class SelectDurationPresenter {
                         weight: stringValue!.selectedValues[2], interests: stringValue?.interest ?? [""])
         let taskRef = self.ref.child(task.title!.lowercased())
         taskRef.setValue(task.convertToDictionary())
-        addMark(task: task)
-    }
-    
-    func addMark(task: Task) {
-        let marker = AddM.addM(userName: task.title ?? "", latitude: task.latitude!, longitude: task.longitude!, sex: task.sex ?? "", age: task.age ?? "", weight: task.weight ?? "", interests: task.interests ?? [""])
-        self.delegate?.addNewMark(marker: marker)
     }
 }

@@ -10,17 +10,22 @@ import Foundation
 import Firebase
 
 final class MapViewPresenter {
-    let newMark = AddNewMarker()
     weak var delegate: AddMarkProtocol?
     func observe() {
-        let ref = Database.database().reference(withPath: "users").child(String(UserInfo.userDemo.uid)).child("tasks")
+        let ref = Database.database().reference(withPath: "users").child(String(UserInfo.userDemo.uid))
         DispatchQueue.global().async {
-        ref.observe(.value, with: { snapshot in
-            for item in snapshot.children {
-                let marker =  self.newMark.addNewMarker(item: item)
-                self.delegate?.addNewMark(marker: marker)
-            }
-        })
+            ref.observe(.childChanged, with: { snapshot in
+                for item in snapshot.children {
+                    let task = Task(snapshot: item as! DataSnapshot)
+                    self.delegate?.addNewMark(marker: AddMarker.addNewMarker(task: task))
+                }
+            })
+            ref.observe(.childAdded, with: { snapshot in
+                for item in snapshot.children {
+                    let task = Task(snapshot: item as! DataSnapshot)
+                    self.delegate?.addNewMark(marker: AddMarker.addNewMarker(task: task))
+                }
+            })
         }
     }
 }

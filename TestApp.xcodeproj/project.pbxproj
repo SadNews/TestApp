@@ -23,13 +23,11 @@
 		11A7BD8324D9283500A1CA5A /* AddMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7BD8224D9283500A1CA5A /* AddMark.swift */; };
 		11A7BD8B24D97FF000A1CA5A /* ChooseParamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7BD8A24D97FF000A1CA5A /* ChooseParamPresenter.swift */; };
 		11A7BD8E24D99A4300A1CA5A /* SelectDurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7BD8D24D99A4300A1CA5A /* SelectDurationPresenter.swift */; };
-		11A7BD9424D9BB4F00A1CA5A /* AddNewMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7BD9324D9BB4F00A1CA5A /* AddNewMarker.swift */; };
 		11E0A5FE24D7D0B200CBD9AE /* ChooseInterestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A5FD24D7D0B200CBD9AE /* ChooseInterestsVC.swift */; };
 		11E0A60024D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A5FF24D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift */; };
 		11E0A60224D89DD500CBD9AE /* SelectDurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60124D89DD500CBD9AE /* SelectDurationTableViewCell.swift */; };
 		11E0A60424D89DEF00CBD9AE /* SelectDurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60324D89DEF00CBD9AE /* SelectDurationViewController.swift */; };
 		11E0A60A24D8DDE400CBD9AE /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60924D8DDE400CBD9AE /* MapViewPresenter.swift */; };
-		11E0A60C24D8DF9400CBD9AE /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60B24D8DF9400CBD9AE /* MapViewModel.swift */; };
 		11E0A60F24D8EC0700CBD9AE /* Extensions+GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60E24D8EC0700CBD9AE /* Extensions+GoogleMaps.swift */; };
 		11E0A61624D8EFEE00CBD9AE /* Extensions+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A61524D8EFEE00CBD9AE /* Extensions+TableView.swift */; };
 		350D0246EACA3DA1CDBBBA31 /* Pods_TestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20715DCEAD1825F81298630 /* Pods_TestApp.framework */; };
@@ -54,13 +52,11 @@
 		11A7BD8224D9283500A1CA5A /* AddMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMark.swift; sourceTree = "<group>"; };
 		11A7BD8A24D97FF000A1CA5A /* ChooseParamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseParamPresenter.swift; sourceTree = "<group>"; };
 		11A7BD8D24D99A4300A1CA5A /* SelectDurationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDurationPresenter.swift; sourceTree = "<group>"; };
-		11A7BD9324D9BB4F00A1CA5A /* AddNewMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMarker.swift; sourceTree = "<group>"; };
 		11E0A5FD24D7D0B200CBD9AE /* ChooseInterestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestsVC.swift; sourceTree = "<group>"; };
 		11E0A5FF24D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestsTableViewCell.swift; sourceTree = "<group>"; };
 		11E0A60124D89DD500CBD9AE /* SelectDurationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDurationTableViewCell.swift; sourceTree = "<group>"; };
 		11E0A60324D89DEF00CBD9AE /* SelectDurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDurationViewController.swift; sourceTree = "<group>"; };
 		11E0A60924D8DDE400CBD9AE /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
-		11E0A60B24D8DF9400CBD9AE /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		11E0A60E24D8EC0700CBD9AE /* Extensions+GoogleMaps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+GoogleMaps.swift"; sourceTree = "<group>"; };
 		11E0A61524D8EFEE00CBD9AE /* Extensions+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+TableView.swift"; sourceTree = "<group>"; };
 		7A5CCB7A19D50CD0C43DDEB4 /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,7 +165,6 @@
 			children = (
 				1177D7EB24D36A8C00479895 /* MapViewController.swift */,
 				11E0A60E24D8EC0700CBD9AE /* Extensions+GoogleMaps.swift */,
-				11E0A60B24D8DF9400CBD9AE /* MapViewModel.swift */,
 				11E0A60924D8DDE400CBD9AE /* MapViewPresenter.swift */,
 			);
 			path = MapView;
@@ -188,7 +183,6 @@
 		11E0A61724D9077700CBD9AE /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				11A7BD9324D9BB4F00A1CA5A /* AddNewMarker.swift */,
 				11A7BD8224D9283500A1CA5A /* AddMark.swift */,
 				1177D80124D643A700479895 /* StringValues.swift */,
 			);
@@ -359,10 +353,8 @@
 				11A7BD8E24D99A4300A1CA5A /* SelectDurationPresenter.swift in Sources */,
 				11A7BD8324D9283500A1CA5A /* AddMark.swift in Sources */,
 				1177D7D824D3616800479895 /* SceneDelegate.swift in Sources */,
-				11E0A60C24D8DF9400CBD9AE /* MapViewModel.swift in Sources */,
 				11A7BD8B24D97FF000A1CA5A /* ChooseParamPresenter.swift in Sources */,
 				11E0A61624D8EFEE00CBD9AE /* Extensions+TableView.swift in Sources */,
-				11A7BD9424D9BB4F00A1CA5A /* AddNewMarker.swift in Sources */,
 				1177D7EC24D36A8C00479895 /* MapViewController.swift in Sources */,
 				11E0A60024D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift in Sources */,
 				1177D7FB24D5A47100479895 /* User.swift in Sources */,

@@ -14,9 +14,9 @@ protocol DismissDelegate {
 }
 
 final class AddOrderViewController: UIViewController, DismissDelegate  {
-    @IBOutlet weak var tslabel: UILabel!
+    @IBOutlet weak var whatDoYouWantLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var btnl: UIButton!
+    @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var doneStackView: UIStackView!
     
     var stringValues: StringValues?
@@ -37,11 +37,11 @@ final class AddOrderViewController: UIViewController, DismissDelegate  {
     
     func dismiss() {
         tableView.isHidden = true
-        tslabel.isHidden = true
-        btnl.isHidden = true
+        whatDoYouWantLabel.isHidden = true
+        continueButton.isHidden = true
         doneStackView.isHidden = false
     }
-    @IBAction func add(_ sender: UIButton) {
+    @IBAction func addOrder(_ sender: UIButton) {
         let selectDurationVC = self.storyboard?.instantiateViewController(withIdentifier: "selectDurationVC") as! SelectDurationViewController
         selectDurationVC.modalPresentationStyle = .fullScreen
         selectDurationVC.stringValue = stringValues

@@ -8,23 +8,18 @@
 
 import Foundation
 import GoogleMaps
+import GooglePlaces
 
-protocol ConfigureNewMark: class {
-    static func addM(userName: String, latitude: Double, longitude: Double,
-                     sex: String, age: String, weight: String, interests: [String]) -> GMSMarker
-}
-class AddM: ConfigureNewMark {
-    let marker = GMSMarker()
-    static func addM(userName: String, latitude: Double, longitude: Double,
-                     sex: String, age: String, weight: String, interests: [String]) -> GMSMarker{
-        let position = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+class AddMarker {
+    static func addNewMarker(task: Task) -> GMSMarker {
+        let position = CLLocationCoordinate2DMake(task.latitude ?? 0, task.longitude ?? 0)
         let marker = GMSMarker(position: position)
-        marker.title = "Имя - \(userName)"
+        marker.title = "Имя - \(String(describing: task.userID))"
         marker.snippet = """
-        Пол - \(sex)
-        Возраст - \(age)
-        Вес - \(weight)
-        Интересы -  \(interests)
+        Пол - \(String(describing: task.sex))
+        Возраст - \(String(describing: task.age))
+        Вес - \(String(describing: task.weight))
+        Интересы -  \(String(describing: task.interests))
         """
         return marker
     }
