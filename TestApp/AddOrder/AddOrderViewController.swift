@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import FirebaseDatabase
 
 protocol DismissDelegate {
     func  dismiss()
@@ -43,11 +44,18 @@ final class AddOrderViewController: UIViewController, DismissDelegate  {
     }
     
     @IBAction func addOrder(_ sender: UIButton) {
-        let selectDurationVC = self.storyboard?.instantiateViewController(withIdentifier: "selectDurationVC") as! SelectDurationViewController
-        selectDurationVC.modalPresentationStyle = .fullScreen
-        selectDurationVC.stringValue = stringValues
-        selectDurationVC.position = position
-        selectDurationVC.dismissDelegate = self
-        present(selectDurationVC, animated: false, completion: nil)
+        let ref = Database.database().reference(withPath: "users").child(String(UserInfo.userDemo.uid)).child("tasks")
+        
+        let task = Task(title: String(Int.random(in: 0..<10000)), userID: UserInfo.userDemo.uid,
+                        latitude: position!.latitude, longitude: position!.longitude,
+                        sex: stringValues?.selectedValues[0] ?? "", age: stringValues?.selectedValues[1] ?? "",
+                        weight: stringValues?.selectedValues[2] ?? "", interests: stringValues?.interest ?? [""])
+        
+        let taskRef = ref.child(task.title?.lowercased() ?? "")
+        taskRef.setValue(task.convertToDictionary())
+        tableView.isHidden = true
+        whatDoYouWantLabel.isHidden = true
+        continueButton.isHidden = true
+
     }
 }

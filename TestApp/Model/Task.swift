@@ -54,7 +54,7 @@ struct Task: Hashable {
     }
     
     func convertToDictionary() -> Any {
-        return ["title": title!, "userId": userID!, "latitude": latitude!, "longitude": longitude!,
-                "sex": sex!, "age": age!, "weight": weight!, "completed": completed, "interests": interests]
+        return ["title": title, "userId": userID, "latitude": latitude, "longitude": longitude,
+                "sex": sex, "age": age, "weight": weight, "completed": completed, "interests": interests]
        }
 }

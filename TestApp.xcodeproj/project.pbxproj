@@ -22,11 +22,8 @@
 		1177D80224D643A700479895 /* StringValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1177D80124D643A700479895 /* StringValues.swift */; };
 		11A7BD8324D9283500A1CA5A /* AddMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7BD8224D9283500A1CA5A /* AddMark.swift */; };
 		11A7BD8B24D97FF000A1CA5A /* ChooseParamPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7BD8A24D97FF000A1CA5A /* ChooseParamPresenter.swift */; };
-		11A7BD8E24D99A4300A1CA5A /* SelectDurationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7BD8D24D99A4300A1CA5A /* SelectDurationPresenter.swift */; };
 		11E0A5FE24D7D0B200CBD9AE /* ChooseInterestsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A5FD24D7D0B200CBD9AE /* ChooseInterestsVC.swift */; };
 		11E0A60024D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A5FF24D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift */; };
-		11E0A60224D89DD500CBD9AE /* SelectDurationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60124D89DD500CBD9AE /* SelectDurationTableViewCell.swift */; };
-		11E0A60424D89DEF00CBD9AE /* SelectDurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60324D89DEF00CBD9AE /* SelectDurationViewController.swift */; };
 		11E0A60A24D8DDE400CBD9AE /* MapViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60924D8DDE400CBD9AE /* MapViewPresenter.swift */; };
 		11E0A60F24D8EC0700CBD9AE /* Extensions+GoogleMaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A60E24D8EC0700CBD9AE /* Extensions+GoogleMaps.swift */; };
 		11E0A61624D8EFEE00CBD9AE /* Extensions+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E0A61524D8EFEE00CBD9AE /* Extensions+TableView.swift */; };
@@ -51,11 +48,8 @@
 		1177D80124D643A700479895 /* StringValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringValues.swift; sourceTree = "<group>"; };
 		11A7BD8224D9283500A1CA5A /* AddMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMark.swift; sourceTree = "<group>"; };
 		11A7BD8A24D97FF000A1CA5A /* ChooseParamPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseParamPresenter.swift; sourceTree = "<group>"; };
-		11A7BD8D24D99A4300A1CA5A /* SelectDurationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDurationPresenter.swift; sourceTree = "<group>"; };
 		11E0A5FD24D7D0B200CBD9AE /* ChooseInterestsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestsVC.swift; sourceTree = "<group>"; };
 		11E0A5FF24D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseInterestsTableViewCell.swift; sourceTree = "<group>"; };
-		11E0A60124D89DD500CBD9AE /* SelectDurationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDurationTableViewCell.swift; sourceTree = "<group>"; };
-		11E0A60324D89DEF00CBD9AE /* SelectDurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDurationViewController.swift; sourceTree = "<group>"; };
 		11E0A60924D8DDE400CBD9AE /* MapViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPresenter.swift; sourceTree = "<group>"; };
 		11E0A60E24D8EC0700CBD9AE /* Extensions+GoogleMaps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+GoogleMaps.swift"; sourceTree = "<group>"; };
 		11E0A61524D8EFEE00CBD9AE /* Extensions+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+TableView.swift"; sourceTree = "<group>"; };
@@ -104,7 +98,6 @@
 				11E0A61424D8EF3100CBD9AE /* AddOrder */,
 				11E0A61724D9077700CBD9AE /* Services */,
 				1177D7FE24D5A49700479895 /* Model */,
-				11A7BD8C24D9995D00A1CA5A /* SelectDuration */,
 				1177D7D724D3616800479895 /* SceneDelegate.swift */,
 				1177D7D524D3616800479895 /* AppDelegate.swift */,
 				1177D7F724D5980F00479895 /* Supporting files */,
@@ -148,16 +141,6 @@
 				11E0A5FF24D7D12000CBD9AE /* ChooseInterestsTableViewCell.swift */,
 			);
 			path = ChooseInterests;
-			sourceTree = "<group>";
-		};
-		11A7BD8C24D9995D00A1CA5A /* SelectDuration */ = {
-			isa = PBXGroup;
-			children = (
-				11E0A60124D89DD500CBD9AE /* SelectDurationTableViewCell.swift */,
-				11E0A60324D89DEF00CBD9AE /* SelectDurationViewController.swift */,
-				11A7BD8D24D99A4300A1CA5A /* SelectDurationPresenter.swift */,
-			);
-			path = SelectDuration;
 			sourceTree = "<group>";
 		};
 		11E0A60D24D8EA3C00CBD9AE /* MapView */ = {
@@ -340,17 +323,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11E0A60424D89DEF00CBD9AE /* SelectDurationViewController.swift in Sources */,
 				11E0A5FE24D7D0B200CBD9AE /* ChooseInterestsVC.swift in Sources */,
 				1177D7FD24D5A48600479895 /* Task.swift in Sources */,
-				11E0A60224D89DD500CBD9AE /* SelectDurationTableViewCell.swift in Sources */,
 				1177D7F624D57E4500479895 /* ChooseParamViewContoller.swift in Sources */,
 				1177D80224D643A700479895 /* StringValues.swift in Sources */,
 				1177D7F224D43B7C00479895 /* AddOrderTableViewCell.swift in Sources */,
 				1177D7EE24D36B0600479895 /* AddOrderViewController.swift in Sources */,
 				11E0A60A24D8DDE400CBD9AE /* MapViewPresenter.swift in Sources */,
 				1177D7D624D3616800479895 /* AppDelegate.swift in Sources */,
-				11A7BD8E24D99A4300A1CA5A /* SelectDurationPresenter.swift in Sources */,
 				11A7BD8324D9283500A1CA5A /* AddMark.swift in Sources */,
 				1177D7D824D3616800479895 /* SceneDelegate.swift in Sources */,
 				11A7BD8B24D97FF000A1CA5A /* ChooseParamPresenter.swift in Sources */,

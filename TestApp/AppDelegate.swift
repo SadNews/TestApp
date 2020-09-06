@@ -14,7 +14,7 @@ import Firebase
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let googleApiKey = "AIzaSyBpoUQg2mM1l9fwQQ_F1P9YS-e6Sw6nn-Y"
+    let googleApiKey = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()

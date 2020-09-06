@@ -13,18 +13,14 @@ import GooglePlaces
 // MARK: - CLLocationManagerDelegate
 extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        guard status == .authorizedWhenInUse else {
-            return
-        }
+        guard status == .authorizedWhenInUse else {return}
         
         locationManager.startUpdatingLocation()
         mapView.isMyLocationEnabled = true
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.first else {
-            return
-        }
+        guard let location = locations.first else {return}
         
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
         locationManager.stopUpdatingLocation()
@@ -43,6 +39,7 @@ extension MapViewController: GMSMapViewDelegate {
 }
 
 extension MapViewController: GMSAutocompleteViewControllerDelegate {
+    
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         print("Place name: \(String(describing: place.name))")
         dismiss(animated: true, completion: nil)
@@ -60,8 +57,7 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        print()
-        
+        print(error)
     }
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         dismiss(animated: true, completion: nil)
@@ -72,19 +68,14 @@ extension MapViewController: GMSAutocompleteViewControllerDelegate {
 extension MapViewController {
     private func reverseGeocodeCoordinate(_ coordinate: CLLocationCoordinate2D) {
         let geocoder = GMSGeocoder()
-        
         geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
-            
             guard let address = response?.firstResult(), let lines = address.lines else {
                 return
             }
-            
             self.addressLabel.text = lines.joined(separator: "\n")
-            
             let labelHeight = self.addressLabel.intrinsicContentSize.height
             self.mapView.padding = UIEdgeInsets(top: self.view.safeAreaInsets.top, left: 0,
                                                 bottom: labelHeight, right: 0)
-            
             UIView.animate(withDuration: 0.25) {
                 self.view.layoutIfNeeded()
             }

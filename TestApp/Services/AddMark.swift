@@ -14,12 +14,12 @@ class AddMarker {
     static func addNewMarker(task: Task) -> GMSMarker {
         let position = CLLocationCoordinate2DMake(task.latitude ?? 0, task.longitude ?? 0)
         let marker = GMSMarker(position: position)
-        marker.title = "Имя - \(String(describing: task.userID))"
+        marker.title = "Имя - \(task.title!)"
         marker.snippet = """
-        Пол - \(String(describing: task.sex))
-        Возраст - \(String(describing: task.age))
-        Вес - \(String(describing: task.weight))
-        Интересы -  \(String(describing: task.interests))
+        Пол - \(String(describing: task.sex!))
+        Возраст - \(String(describing: task.age!))
+        Вес - \(String(describing: task.weight!))
+        Интересы -  \(String(describing: task.interests!))
         """
         return marker
     }
